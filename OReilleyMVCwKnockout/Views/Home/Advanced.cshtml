@@ -1,0 +1,18 @@
+﻿@model OReilleyMVCwKnockout.Models.Person
+@{
+    ViewBag.Title = "Advanced";
+}
+
+<h2>Hello <span data-bind="text: getName()"></span></h2>
+
+@section Scripts {
+    <script>
+        function ViewModel(firstName, lastName) {
+            var self = this;
+
+            self.name = firstName + ' ' + lastName;
+        }
+
+    </script>
+    
+    }
