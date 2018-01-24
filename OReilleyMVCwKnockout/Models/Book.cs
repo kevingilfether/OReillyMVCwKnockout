@@ -7,9 +7,9 @@ namespace OReilleyMVCwKnockout.Models
 {
     public class Book
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
 
-        public int AuthorID { get; set; }
+        public int AuthorId { get; set; }
 
         public string Title { get; set; }
 
