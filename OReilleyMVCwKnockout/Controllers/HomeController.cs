@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OReilleyMVCwKnockout.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -30,6 +31,17 @@ namespace OReilleyMVCwKnockout.Controllers
         public ActionResult Basic()
         {
             return View();
+        }
+
+        public ActionResult Advanced()
+        {
+            var person = new Person
+            {
+                FirstName = "Kevin",
+                LastName = "Gilfether"
+            };
+
+            return View(person);
         }
     }
 }

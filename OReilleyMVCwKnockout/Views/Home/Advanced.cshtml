@@ -11,7 +11,14 @@
             var self = this;
 
             self.name = firstName + ' ' + lastName;
-        }
+
+            self.getName = function () {
+                return self.name;
+            };
+        };
+
+        var viewModel = new ViewModel('@Model.FirstName', '@Model.LastName');
+        ko.applyBindings(viewModel);
 
     </script>
     
