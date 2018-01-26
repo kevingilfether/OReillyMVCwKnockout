@@ -204,7 +204,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="DAL\BookContext.cs" />
     <Compile Include="DAL\BookInitializer.cs" />
-    <Compile Include="Extensions\HTMLHelperExtensions\HtmlHelperExtensions.cs" />
+    <Compile Include="Extensions\HtmlHelperExtension.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
