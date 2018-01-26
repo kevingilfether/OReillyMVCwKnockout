@@ -5,7 +5,9 @@ using System.Web;
 
 namespace OReilleyMVCwKnockout.Models
 {
-    public class SortOrder
+    public enum SortOrder
     {
+        ASC,
+        DESC
     }
 }
