@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
+using System.Linq.Dynamic;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using OReilleyMVCwKnockout.DAL;
 using OReilleyMVCwKnockout.Models;
+using System.Web.ModelBinding;
 
 namespace OReilleyMVCwKnockout.Controllers
 {
@@ -16,8 +18,12 @@ namespace OReilleyMVCwKnockout.Controllers
         private BookContext db = new BookContext();
 
         // GET: Authors
-        public ActionResult Index()
+        public ActionResult Index([Form] QueryOptions queryOptions)
         {
+            var authors = db.Authors.OrderBy(queryOptions.Sort);
+
+            ViewBag.QueryOptions = queryOptions;
+
             return View(db.Authors.ToList());
         }
 
