@@ -20,6 +20,25 @@ namespace OReilleyMVCwKnockout.Extensions
             return new HtmlString(JsonConvert.SerializeObject(model, settings));
         }
 
+        public static MvcHtmlString BuildSortableLink (this HtmlHelper htmlHelper, string fieldName, string actionName, string sortField, QueryOptions queryOptions)
+        {
+            var urlHelper = new UrlHelper(htmlHelper.ViewContext.RequestContext);
+
+            var isCurrentSortField = queryOptions.SortField == sortField;
+
+            return new MvcHtmlString(string.Format("<a href=\"{0}\">{1} {2}</a>",
+                urlHelper.Action(actionName,
+                new
+                {
+                    SortField = sortField,
+                    SortOrder = (isCurrentSortField
+                    && queryOptions.SortOrder == SortOrder.ASC)
+                    ? SortOrder.DESC : SortOrder.ASC
+                }),
+                fieldName,
+                BuildSortIcon(isCurrentSortField, queryOptions)));
+        }
+
         private static string BuildSortIcon(bool isCurrentSortField, QueryOptions queryOptions)
         {
             string sortIcon = "sort";
